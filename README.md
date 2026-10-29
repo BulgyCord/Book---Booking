@@ -1,5 +1,5 @@
-# Nu primesc notă pentru că nu am pus titlu și descriere
-
+# Book-Booking
+### Book-Booking is a system for organizing the data of a library including information about the availability of different books to be lent to people to read and also information about the books and the people that ordered them
 ### Folosiți template-ul corespunzător grupei voastre!
 
 | Laborant  | Link template                                |
