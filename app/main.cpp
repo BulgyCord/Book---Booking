@@ -126,8 +126,8 @@ public:
     auto itC = cititori.find(idCititor);
     auto itB = carti.find(isbn);
     if (itC==cititori.end() || itB==carti.end()) return false;
-    if (!itB->second.returneaza()) return false;
-    return itC->second.returneaza(isbn);
+    if (!itC->second.returneaza(isbn)) return false;
+    return itB->second.returneaza();
   }
 
   friend std::ostream& operator<<(std::ostream& os, const Biblioteca& b) {
@@ -143,15 +143,19 @@ int main() {
   Carte c1{"Luceafarul","978-1",a1,e1,1883,"poezie",3};
 
   Cititor ct1{100,"Ana Pop"};
+  Cititor ct2{101,"Ion Ionescu"};
 
   Biblioteca b;
   b.adaugaCarte(c1);
   b.inscrieCititor(ct1);
+  b.inscrieCititor(ct2);
 
   std::cout << a1 << "\n" << e1 << "\n" << c1 << "\n" << ct1 << "\n" << b << "\n";
 
   std::cout << (b.imprumutaCarte(100,"978-1") ? "Imprumut reusit" : "Esuat") << "\n";
+  std::cout << (b.returneazaCarte(101,"978-1") ? "Returnare reusita" : "Esuat") << "\n";
   std::cout << (b.returneazaCarte(100,"978-1") ? "Returnare reusita" : "Esuat") << "\n";
+  
 
   return 0;
 }
